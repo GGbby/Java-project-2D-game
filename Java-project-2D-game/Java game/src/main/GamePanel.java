@@ -1,3 +1,4 @@
+package main;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -16,6 +17,8 @@ public class GamePanel extends JPanel implements Runnable{
     final int screenHeight = tileSize * maxScreenRow;//screen size
 
     Thread gameThread;//start time image
+
+    
 
 
     public GamePanel(){
