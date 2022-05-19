@@ -44,7 +44,6 @@ public class GamePanel extends JPanel implements Runnable{
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;//start time image
     public Player player = new Player(this,keyH);
-    Player player = new Player(this,keyH);
 
 
     public GamePanel(){
