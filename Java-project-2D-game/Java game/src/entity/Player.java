@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import main.GamePanel;
+import java.awt.Rectangle;
 
 public class Player extends Entity{
     
@@ -20,6 +21,12 @@ public class Player extends Entity{
 
         screenX = gp.screenWidth / 2 - (gp.tileSize / 2);
         screenY = gp.screenHeight / 2 - (gp.tileSize / 2);
+
+        solidArea = new Rectangle(0, 0, 48, 48);
+        solidArea.x = 10;
+        solidArea.y = 20;
+        solidArea.width = 28;
+        solidArea.height = 28;
 
         setDefaultCloseOperation();
         getPlayerImage();

@@ -33,15 +33,18 @@ public class TileManager {
 
             tile[1]= new Tile();
             tile[1].image = ImageIO.read(getClass().getResourceAsStream("../res/tiles/wall.png"));
+            tile[1].collision = true;
 
             tile[2]= new Tile();
             tile[2].image = ImageIO.read(getClass().getResourceAsStream("../res/tiles/water.png"));
+            tile[2].collision = true;
 
             tile[3]= new Tile();
             tile[3].image = ImageIO.read(getClass().getResourceAsStream("../res/tiles/earth.png"));
 
             tile[4]= new Tile();
             tile[4].image = ImageIO.read(getClass().getResourceAsStream("../res/tiles/tree.png"));
+            tile[4].collision = true;
 
             tile[5]= new Tile();
             tile[5].image = ImageIO.read(getClass().getResourceAsStream("../res/tiles/sand.png"));
@@ -80,16 +83,16 @@ public class TileManager {
 
     public void draw(Graphics2D g2){
 
-        int worldCol = 0;
+        int worldCol = 0; //map size
         int worldRow = 0;
         
         while (worldCol < gp.maxWorldCol && worldRow < gp.maxWorldRow) {
 
             int tileNum = mapTileNum[worldCol][worldRow];
 
-            int worldX = worldCol * gp.tileSize;
+            int worldX = worldCol * gp.tileSize; //map size*3 = map real size
             int worldY = worldRow * gp.tileSize;
-            int screenX = worldX - gp.player.worldX + gp.player.screenX;
+            int screenX = worldX - gp.player.worldX + gp.player.screenX; //camera position
             int screenY = worldY - gp.player.worldY + gp.player.screenY;
 
 
