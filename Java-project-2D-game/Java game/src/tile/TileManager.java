@@ -61,8 +61,8 @@ public class TileManager {
                     col = 0;
                     row++;
                 }
-                br.close();
             }
+            br.close();
         } catch (Exception e) {
             //TODO: handle exception
         }
