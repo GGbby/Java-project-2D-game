@@ -1,10 +1,10 @@
 package tile;
 
 import javax.imageio.ImageIO;
-import javax.swing.InputMap;
+//import javax.swing.InputMap;
 
 import java.awt.*;
-import java.io.BufferedInputStream;
+//import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
