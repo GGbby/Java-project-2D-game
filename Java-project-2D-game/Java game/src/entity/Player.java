@@ -22,7 +22,7 @@ public class Player extends Entity{
         screenX = gp.screenWidth / 2 - (gp.tileSize / 2);
         screenY = gp.screenHeight / 2 - (gp.tileSize / 2);
 
-        solidArea = new Rectangle(0, 0, 48, 48);
+        solidArea = new Rectangle(0, 0, 48, 48);//角色邊框觸碰
         solidArea.x = 10;
         solidArea.y = 20;
         solidArea.width = 28;
@@ -56,19 +56,32 @@ public class Player extends Entity{
     public void update(){
         if (keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true || keyH.rightPressed == true) {
             if (keyH.upPressed == true) {
-                direction="up";
-                worldY -= speed;
+                direction="up";         
             }else if(keyH.downPressed == true){
-                direction="down";
-                worldY += speed;
+                direction="down";      
             }else if(keyH.leftPressed == true){
-                direction="left";
-                worldX -= speed;
+                direction="left";               
             }else if(keyH.rightPressed == true){
-                direction="right";
-                worldX += speed;
+                direction="right";      
             }
+
+            //check tile collison
+            collisionOn = false;
+            gp.cChecker.checkTile(this);
     
+            // if cillision is false ,player can move
+            if(collisionOn == false) {
+
+                switch(direction) {
+                case "up":worldY -= speed;break;
+                case "down":worldY += speed;break;
+                case "left":worldX -= speed;break;
+                case "right":worldX += speed;break;
+
+                    
+                }
+            }
+
             spriteCounter++;
             if (spriteCounter > 15) {
                 if (spriteNum == 1) {
