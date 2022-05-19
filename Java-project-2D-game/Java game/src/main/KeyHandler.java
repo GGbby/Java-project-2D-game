@@ -17,25 +17,6 @@ public class KeyHandler implements KeyListener{
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode();
         
-        // switch (code) {
-        //     case KeyEvent.VK_W:
-        //         upPressed = true;
-        //         break;
-                
-        //     case KeyEvent.VK_S:
-        //         downPressed = true;
-        //         break;
-
-        //     case KeyEvent.VK_A:
-        //         leftPressed = true;
-        //         break;
-
-        //     case KeyEvent.VK_D:
-        //         rightPressed = true;
-        //         break;
-
-        // }
-
         if (code == KeyEvent.VK_W) {
             upPressed = true;
         }
