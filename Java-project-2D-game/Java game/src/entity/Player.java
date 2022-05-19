@@ -13,6 +13,7 @@ public class Player extends Entity{
     main.KeyHandler keyH;
     public final int screenX;
     public final int screenY;
+    int hasKey = 0;//player has key number
 
     public Player(GamePanel gp, main.KeyHandler keyH){
 
@@ -25,6 +26,8 @@ public class Player extends Entity{
         solidArea = new Rectangle(0, 0, 48, 48);//角色邊框觸碰
         solidArea.x = 10;
         solidArea.y = 20;
+        solidAreaDefaultX = solidArea.x;
+        solidAreaDefaultY = solidArea.y;
         solidArea.width = 28;
         solidArea.height = 28;
 
@@ -68,7 +71,11 @@ public class Player extends Entity{
             //check tile collison
             collisionOn = false;
             gp.cChecker.checkTile(this);
-    
+
+            //Check object collision
+            int objIndex = gp.cChecker.checkObject(this, true);
+            pickUpObject(objIndex);
+
             // if cillision is false ,player can move
             if(collisionOn == false) {
 
@@ -95,6 +102,30 @@ public class Player extends Entity{
 
         
     }
+
+    public void pickUpObject(int i) {//what happen when player touch
+        if(i != 999) {
+
+            String objectName = gp.obj[i].name;
+            //count with key and door
+            switch(objectName) {
+            case "Key":
+                hasKey++;
+                gp.obj[i] = null;
+                System.out.println(("Key:"+hasKey));
+                break;
+            case "Door":
+                if(hasKey >0) {
+                    gp.obj[i] = null;
+                    hasKey--;
+                }
+                System.out.println(("Key:"+hasKey));
+                break;
+            }
+
+        }
+    }
+
     public void draw(Graphics2D g2){
         //rectangle
         // g2.setColor(Color.white);
