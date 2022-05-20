@@ -24,11 +24,11 @@ public class Player extends Entity{
         screenY = gp.screenHeight / 2 - (gp.tileSize / 2);
 
         solidArea = new Rectangle(0, 0, 48, 48);//角色邊框觸碰
-        solidArea.x = 10;
+        solidArea.x = 12;
         solidArea.y = 20;
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;
-        solidArea.width = 28;
+        solidArea.width = 24;
         solidArea.height = 28;
 
         setDefaultCloseOperation();
@@ -110,17 +110,24 @@ public class Player extends Entity{
             //count with key and door
             switch(objectName) {
             case "Key":
+                gp.playSE(1);
                 hasKey++;
                 gp.obj[i] = null;
                 System.out.println(("Key:"+hasKey));
-                break;
+            break;
             case "Door":
                 if(hasKey >0) {
+                    gp.playSE(3);
                     gp.obj[i] = null;
                     hasKey--;
                 }
                 System.out.println(("Key:"+hasKey));
-                break;
+            break;
+            case "Boots":
+                gp.playSE(2);
+                speed += 2;
+                gp.obj[i] =null;
+            break;
             }
 
         }
