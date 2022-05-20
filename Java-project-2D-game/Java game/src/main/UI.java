@@ -55,7 +55,7 @@ public class UI {
             y = gp.screenHeight/2 - (gp.tileSize*3); //文字顯示位置
             g2.drawString(text, x, y);
 
-            text = "You time is "+ dFormat.format(playTime) + "s";
+            text = "Your time is "+ dFormat.format(playTime) + "s";
             textLenght = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();//回報文字長度 為了顯示位置做調整
             x = gp.screenWidth/2 - textLenght/2;
             y = gp.screenHeight/2 + (gp.tileSize*4); //文字顯示位置
